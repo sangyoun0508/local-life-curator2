@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>청주 G-PjBL 컨설팅 - 세대 갈등을 성과로 전환하다</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', 'Pretendard', -apple-system, sans-serif;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            background: #0A1931;
+            padding: 1.2rem 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .logo span {
+            color: #1DE9B6;
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #1DE9B6;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #0A1931 0%, #1a3a5c 100%);
+            color: white;
+            padding: 140px 5% 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(29,233,182,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
+            font-weight: bold;
+        }
+
+        .hero h1 .highlight {
+            color: #1DE9B6;
+            border-bottom: 3px solid #1DE9B6;
+        }
+
+        .hero h2 {
+            font-size: 1.4rem;
+            margin-bottom: 2rem;
+            font-weight: 400;
+            opacity: 0.95;
+            line-height: 1.6;
+        }
+
+        .hero-image {
+            margin: 2rem 0;
+            padding: 2rem;
+            background: rgba(255,255,255,0.05);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .hero-image p {
+            font-size: 1rem;
+            opacity: 0.8;
+            font-style: italic;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #1DE9B6;
+            color: #0A1931;
+            padding: 1.2rem 3rem;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s;
+            box-shadow: 0 5px 20px rgba(29,233,182,0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(29,233,182,0.5);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 80px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #0A1931;
+            font-weight: bold;
+        }
+
+        /* Pain Points */
+        .pain-points {
+            background: #F5F5F5;
+        }
+
+        .checklist {
+            max-width: 800px;
+            margin: 2rem auto;
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .checklist-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            border-left: 4px solid #1DE9B6;
+            background: #f9f9f9;
+            border-radius: 5px;
+        }
+
+        .checklist-item::before {
+            content: '✓';
+            color: #1DE9B6;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-right: 1rem;
+        }
+
+        .pain-message {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #0A1931;
+            font-weight: 600;
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 10px;
+        }
+
+        /* Solution Section */
+        .solution {
+            background: white;
+        }
+
+        .solution-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .solution-intro strong {
+            color: #1DE9B6;
+            font-size: 1.3rem;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .step {
+            background: #F5F5F5;
+            padding: 2rem;
+            border-radius: 15px;
+            transition: transform 0.3s;
+            border-top: 5px solid #1DE9B6;
+        }
+
+        .step:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(29,233,182,0.2);
+        }
+
+        .step-number {
+            font-size: 2rem;
+            color: #1DE9B6;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .step h3 {
+            font-size: 1.4rem;
+            color: #0A1931;
+            margin-bottom: 1rem;
+        }
+
+        .step p {
+            line-height: 1.7;
+            color: #555;
+        }
+
+        /* Benefits */
+        .benefits {
+            background: linear-gradient(135deg, #0A1931 0%, #1a3a5c 100%);
+            color: white;
+        }
+
+        .benefits .section-title {
+            color: white;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .benefit-card {
+            background: rgba(255,255,255,0.1);
+            padding: 2.5rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(29,233,182,0.3);
+            transition: all 0.3s;
+        }
+
+        .benefit-card:hover {
+            background: rgba(255,255,255,0.15);
+            border-color: #1DE9B6;
+        }
+
+        .benefit-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .benefit-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #1DE9B6;
+        }
+
+        .benefit-card p {
+            line-height: 1.7;
+            opacity: 0.9;
+        }
+
+        /* Success Stories */
+        .success-stories {
+            background: #F5F5F5;
+        }
+
+        .stories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .story-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            border-left: 5px solid #1DE9B6;
+        }
+
+        .story-card h3 {
+            color: #0A1931;
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .story-card p {
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 0.8rem;
+        }
+
+        .cta-secondary {
+            display: inline-block;
+            background: transparent;
+            color: #1DE9B6;
+            padding: 1rem 2rem;
+            border: 2px solid #1DE9B6;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            margin-top: 2rem;
+        }
+
+        .cta-secondary:hover {
+            background: #1DE9B6;
+            color: #0A1931;
+        }
+
+        /* Final CTA */
+        .final-cta {
+            background: white;
+            text-align: center;
+            padding: 100px 5%;
+        }
+
+        .final-cta h2 {
+            font-size: 2.5rem;
+            color: #0A1931;
+            margin-bottom: 1.5rem;
+            line-height: 1.4;
+        }
+
+        .final-cta p {
+            font-size: 1.2rem;
+            color: #555;
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+            line-height: 1.8;
+        }
+
+        /* Footer */
+        footer {
+            background: #0A1931;
+            color: white;
+            padding: 3rem 5%;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-content h3 {
+            color: #1DE9B6;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin: 1.5rem 0;
+        }
+
+        .contact-item {
+            opacity: 0.9;
+        }
+
+        .social-links {
+            margin-top: 2rem;
+        }
+
+        .social-links a {
+            color: #1DE9B6;
+            text-decoration: none;
+            margin: 0 1rem;
+            transition: opacity 0.3s;
+        }
+
+        .social-links a:hover {
+            opacity: 0.7;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero h2 {
+                font-size: 1.1rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .process-steps,
+            .benefits-grid,
+            .stories-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 50px 5%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <div class="logo">로컬<span>시너지</span></div>
+            <nav>
+                <a href="#solution">서비스 소개</a>
+                <a href="#pain">문제점 진단</a>
+                <a href="#success">성공 사례</a>
+                <a href="#contact">문의하기</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>우리 회사의 세대 갈등,<br>단순한 불만이 아닌 <span class="highlight">'성과 저해 요소'</span>입니다.</h1>
+            <h2>청주 산업 기반 맞춤형 세대 융합 PjBL(Project-based Learning)<br>
+            MZ세대의 활력과 기성세대의 노하우를 실제 직무 문제 해결 프로젝트로 연결합니다.</h2>
+            <div class="hero-image">
+                <p>💡 대학생과 기업 직원이 공정 현장에서 함께 토론하고 전략을 구상하는 모습</p>
+            </div>
+            <a href="#contact" class="cta-button">🚀 30분 무료 진단 컨설팅 신청하기</a>
+        </div>
+    </section>
+
+    <!-- Pain Points Section -->
+    <section class="pain-points" id="pain">
+        <h2 class="section-title">혹시 귀사의 현주소는 이러하지 않습니까?</h2>
+        <div class="checklist">
+            <div class="checklist-item">
+                세대 간 소통 방식 차이로 업무 효율이 떨어집니다.
+            </div>
+            <div class="checklist-item">
+                신입 인력 교육에 과도한 시간과 비용이 소요됩니다.
+            </div>
+            <div class="checklist-item">
+                기존 직원의 리더십이 MZ세대에게 효과적으로 전달되지 않습니다.
+            </div>
+            <div class="checklist-item">
+                세대 갈등으로 회의, 협업, 아이디어 제안이 소극적으로 변했습니다.
+            </div>
+        </div>
+        <div class="pain-message">
+            이런 문제는 단순한 '교육'으로는 해결되지 않습니다.<br>
+            <strong>'협력 구조'</strong> 자체를 바꾸는 것, 그것이 해답입니다.
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="solution" id="solution">
+        <h2 class="section-title">전문 퍼실리테이터가 리드하는<br>세대 융합 프로젝트만이 해답입니다.</h2>
+        <div class="solution-intro">
+            <p><strong>G-PjBL (Generational Project-based Learning)</strong>은<br>
+            기업의 실제 현안을 중심으로 세대 간 협업을 유도하는<br>
+            문제 해결형 맞춤 컨설팅 프로그램입니다.</p>
+        </div>
+        
+        <div class="process-steps">
+            <div class="step">
+                <div class="step-number">1️⃣</div>
+                <h3>문제 정의 및 팀 빌딩</h3>
+                <p>기업의 실제 직무 과제를 주제로 설정하고, 기업 직원(멘토) + 대학생(실무진)으로 하이브리드 팀 구성</p>
+            </div>
+            <div class="step">
+                <div class="step-number">2️⃣</div>
+                <h3>협력 프로젝트 수행</h3>
+                <p>전문 산학 퍼실리테이터가 팀의 진행을 리드하며 세대 간 사고방식 차이를 중재하고, 협업 중심의 커뮤니케이션 훈련 제공</p>
+            </div>
+            <div class="step">
+                <div class="step-number">3️⃣</div>
+                <h3>성과 도출 및 리포팅</h3>
+                <p>프로젝트 결과물 발표 및 기업 현안 개선 솔루션 제안. 성과 분석 리포트 + 내부 세대 융합 리더십 가이드 제공</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits">
+        <h2 class="section-title">세대 갈등을 넘어,<br>당장 성과로 이어지는 3가지 변화</h2>
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <div class="benefit-icon">✅</div>
+                <h3>즉각적인 문제 해결</h3>
+                <p>프로젝트 결과물이 실제 업무 개선안으로 이어집니다. 현장의 실질적인 과제를 해결하며 즉시 적용 가능한 솔루션을 도출합니다.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon">🤝</div>
+                <h3>직장 문화 혁신</h3>
+                <p>MZ세대와 기성세대 간 이해 증진, 리더십 재정립. 세대 간 벽을 허물고 상호 존중의 협업 문화를 구축합니다.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon">🎓</div>
+                <h3>인재 선점 및 검증</h3>
+                <p>학생은 실무 역량을, 기업은 검증된 인재를 확보. 채용 전 실무 적합성을 평가하고 지역 우수 인재를 조기 확보합니다.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Stories -->
+    <section class="success-stories" id="success">
+        <h2 class="section-title">실제 기업이 경험한 변화입니다.</h2>
+        <div class="stories-grid">
+            <div class="story-card">
+                <h3>A 중소기업</h3>
+                <p>📈 4주간의 PjBL 이후 생산성 10% 향상</p>
+                <p>📉 불량률 7% 감소</p>
+                <p>💬 "세대 간 소통이 원활해지면서 업무 프로세스 자체가 개선되었습니다."</p>
+            </div>
+            <div class="story-card">
+                <h3>B 중견기업</h3>
+                <p>😊 세대 간 소통 만족도 85% 상승</p>
+                <p>🎯 내부 리더십 교육 프로그램으로 확장 적용</p>
+                <p>💬 "처음에는 반신반의했지만, 이제는 우리 회사의 핵심 문화 전략이 되었습니다."</p>
+            </div>
+        </div>
+        <div style="text-align: center;">
+            <a href="#contact" class="cta-secondary">📂 성공 사례 포트폴리오(PDF) 요청하기</a>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+        <h2>이제 막연한 화합이 아닌,<br>실질적인 성과 중심의 세대 협력으로 나아가세요.</h2>
+        <p>전문 퍼실리테이션 기반의 협력 시스템으로<br>
+        세대 차이를 '경쟁력'으로 바꾸는 첫걸음을 시작하십시오.</p>
+        <a href="#contact" class="cta-button">🚀 지금 바로 맞춤형 프로젝트 컨설팅 신청하기</a>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-content">
+            <h3>청주 G-PjBL 컨설팅 / 로컬시너지</h3>
+            <div class="contact-info">
+                <div class="contact-item">📍 충청북도 청주시</div>
+                <div class="contact-item">📧 contact@gpjbl.co.kr</div>
+                <div class="contact-item">📞 043-XXX-XXXX</div>
+            </div>
+            <div class="social-links">
+                <a href="#">LinkedIn</a> | 
+                <a href="#">Instagram</a> | 
+                <a href="#">YouTube</a>
+            </div>
+            <p style="margin-top: 2rem; opacity: 0.7;">© 2025 로컬시너지. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Scroll animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.step, .benefit-card, .story-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
